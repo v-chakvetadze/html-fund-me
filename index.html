@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fund Me App</title>
+  </head>
+  <body>
+    Fund Me App
+
+    <section>
+      <button id="connectButton">Connect</button>
+    </section>
+
+    <section>
+      <label for="fund">ETH Amount</label>
+      <input id="ethAmount" placeholder="0.1" value="0.1" />
+      <button id="fundButton">Fund</button>
+    </section>
+
+    <button id="balanceButton">getBalance</button>
+    <button id="withdrawButton">Withdraw</button>
+
+    <script type="module">
+      import { connect, fund, getBalance, withdraw } from "./index.js";
+
+      const connectButton = document.getElementById("connectButton");
+      connectButton.onclick = connect;
+
+      const fundButton = document.getElementById("fundButton");
+      fundButton.onclick = () => {
+        const ethAmount = document.getElementById("ethAmount").value;
+        fund(ethAmount);
+      };
+
+      const balanceButton = document.getElementById("balanceButton");
+      balanceButton.onclick = getBalance;
+
+      const withdrawButton = document.getElementById("withdrawButton");
+      withdrawButton.onclick = withdraw;
+    </script>
+  </body>
+</html>
